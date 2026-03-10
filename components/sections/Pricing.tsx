@@ -54,7 +54,10 @@ export default function Pricing() {
                 </div>
 
                 <div className="w-full max-w-xs">
-                  <Button href="/cadastro" className="w-full">
+                  <Button
+                    href="https://app.agendeflow.com/cadastro"
+                    className="w-full"
+                  >
                     Começar agora
                   </Button>
 

@@ -23,25 +23,44 @@ export default function Navbar() {
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
-            <a href="#beneficios" className="text-sm font-medium text-slate-600 hover:text-slate-900">
+            <a
+              href="#beneficios"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900"
+            >
               Benefícios
             </a>
-            <a href="#recursos" className="text-sm font-medium text-slate-600 hover:text-slate-900">
+            <a
+              href="#recursos"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900"
+            >
               Recursos
             </a>
-            <a href="#demonstracao" className="text-sm font-medium text-slate-600 hover:text-slate-900">
+            <a
+              href="#demonstracao"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900"
+            >
               Demonstração
             </a>
-            <a href="#preco" className="text-sm font-medium text-slate-600 hover:text-slate-900">
+            <a
+              href="#preco"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900"
+            >
               Preço
             </a>
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button href="/login" variant="secondary" className="hidden sm:inline-flex">
+            <Button
+              href="https://app.agendeflow.com/login"
+              variant="secondary"
+              className="hidden sm:inline-flex"
+            >
               Entrar
             </Button>
-            <Button href="/cadastro">Testar 7 dias grátis</Button>
+
+            <Button href="https://app.agendeflow.com/cadastro">
+              Testar 7 dias grátis
+            </Button>
           </div>
         </div>
       </Container>

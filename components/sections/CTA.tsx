@@ -26,13 +26,16 @@ export default function CTA() {
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button href="/cadastro" className="group">
+              <Button
+                href="https://app.agendeflow.com/cadastro"
+                className="group"
+              >
                 Testar 7 dias grátis
                 <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5" />
               </Button>
 
               <Button
-                href="/login"
+                href="https://app.agendeflow.com/login"
                 variant="secondary"
                 className="border-white/15 bg-white/5 text-white hover:bg-white/10"
               >
