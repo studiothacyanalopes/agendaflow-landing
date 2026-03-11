@@ -24,27 +24,27 @@ export default function Hero() {
       <div className="absolute right-[-100px] top-10 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
       <div className="absolute bottom-[-120px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-emerald-100/60 blur-3xl" />
 
-      <Container className="relative z-10 py-16 sm:py-20 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
+      <Container className="relative z-10 py-14 sm:py-20 lg:py-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 xl:gap-14">
+          <div className="mx-auto w-full max-w-3xl text-center lg:mx-0 lg:text-left">
             <div className="reveal-up inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700">
               <Sparkles className="h-4 w-4" />
               7 dias grátis para testar sem compromisso
             </div>
 
-            <h1 className="reveal-up delay-1 mt-6 max-w-4xl text-4xl font-black tracking-[-0.06em] text-slate-900 sm:text-5xl lg:text-7xl">
+            <h1 className="reveal-up delay-1 mt-6 text-4xl font-black tracking-[-0.06em] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl">
               Transforme sua agenda em{" "}
               <span className="text-[#16a34a]">crescimento real</span> para sua
               barbearia ou salão.
             </h1>
 
-            <p className="reveal-up delay-2 mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+            <p className="reveal-up delay-2 mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg lg:max-w-xl">
               O AgendaFlow organiza seus agendamentos, profissionais, clientes e
               pagamentos em uma experiência premium. Mais controle, mais
               profissionalismo e menos confusão no WhatsApp.
             </p>
 
-            <div className="reveal-up delay-3 mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="reveal-up delay-3 mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Button href="/cadastro" className="group">
                 Testar 7 dias grátis
                 <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5" />
@@ -55,7 +55,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="reveal-up delay-4 mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-500">
+            <div className="reveal-up delay-4 mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 lg:justify-start">
               <span className="font-medium text-slate-900">R$ 49,90/mês</span>
               <span>•</span>
               <span>sem fidelidade</span>
@@ -63,7 +63,7 @@ export default function Hero() {
               <span>comece grátis</span>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap justify-center gap-3 lg:justify-start">
               {miniStats.map((item) => (
                 <div
                   key={item}
@@ -75,8 +75,8 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="animate-float absolute -left-6 top-6 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl md:block">
+          <div className="relative mx-auto w-full max-w-[760px] lg:max-w-none">
+            <div className="animate-float absolute -left-4 top-6 z-10 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl xl:block">
               <div className="flex items-center gap-3">
                 <div className="rounded-2xl bg-emerald-50 p-3 text-emerald-600">
                   <CalendarClock className="h-5 w-5" />
@@ -90,7 +90,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="animate-float-delay absolute -right-4 top-28 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl lg:block">
+            <div className="animate-float-delay absolute -right-3 top-24 z-10 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl xl:block">
               <div className="flex items-center gap-3">
                 <div className="rounded-2xl bg-blue-50 p-3 text-blue-600">
                   <CreditCard className="h-5 w-5" />
@@ -104,7 +104,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="animate-float-slow absolute bottom-6 left-0 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl md:block">
+            <div className="animate-float-slow absolute bottom-10 left-0 z-10 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl xl:block">
               <div className="flex items-center gap-3">
                 <div className="rounded-2xl bg-violet-50 p-3 text-violet-600">
                   <Users className="h-5 w-5" />
@@ -118,38 +118,42 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="gradient-border glass-card soft-shadow-lg animate-glow relative overflow-hidden rounded-[32px] p-3">
+            <div className="gradient-border glass-card soft-shadow-lg animate-glow relative mx-auto w-full max-w-[680px] overflow-hidden rounded-[28px] p-2 sm:rounded-[32px] sm:p-3">
               <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-100/70 to-transparent" />
 
-              <div className="relative rounded-[28px] border border-slate-200 bg-white p-4 sm:p-5">
-                <div className="mb-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
+              <div className="relative rounded-[24px] border border-slate-200 bg-white p-3 sm:rounded-[28px] sm:p-4 md:p-5">
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <div className="flex min-w-0 items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white sm:h-11 sm:w-11">
                       <CalendarClock className="h-5 w-5" />
                     </div>
-                    <div>
-                      <p className="font-semibold text-slate-900">AgendaFlow</p>
-                      <p className="text-xs text-slate-500">
+
+                    <div className="min-w-0">
+                      <p className="truncate font-semibold text-slate-900">
+                        AgendaFlow
+                      </p>
+                      <p className="truncate text-xs text-slate-500">
                         Painel do estabelecimento
                       </p>
                     </div>
                   </div>
 
-                  <div className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                  <div className="shrink-0 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
                     Online
                   </div>
                 </div>
 
-                <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-                  <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4">
-                    <div className="mb-4 flex items-center justify-between">
-                      <div>
+                <div className="grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
+                  <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-3 sm:p-4">
+                    <div className="mb-4 flex items-center justify-between gap-3">
+                      <div className="min-w-0">
                         <p className="text-sm text-slate-500">Agenda do dia</p>
                         <h3 className="text-lg font-bold tracking-[-0.03em] text-slate-900">
                           Hoje
                         </h3>
                       </div>
-                      <div className="rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm">
+
+                      <div className="shrink-0 rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm">
                         8 horários
                       </div>
                     </div>
@@ -163,15 +167,18 @@ export default function Hero() {
                       ].map(([hour, service, client]) => (
                         <div
                           key={`${hour}-${service}`}
-                          className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3"
+                          className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-3 sm:px-4"
                         >
-                          <div>
-                            <p className="text-sm font-semibold text-slate-900">
+                          <div className="min-w-0">
+                            <p className="truncate text-sm font-semibold text-slate-900">
                               {service}
                             </p>
-                            <p className="text-xs text-slate-500">{client}</p>
+                            <p className="truncate text-xs text-slate-500">
+                              {client}
+                            </p>
                           </div>
-                          <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+
+                          <div className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
                             {hour}
                           </div>
                         </div>
@@ -180,7 +187,7 @@ export default function Hero() {
                   </div>
 
                   <div className="space-y-4">
-                    <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4">
+                    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
                       <div className="flex items-center gap-3">
                         <div className="rounded-2xl bg-emerald-100 p-3 text-emerald-700">
                           <CheckCircle2 className="h-5 w-5" />
@@ -192,12 +199,12 @@ export default function Hero() {
                       </div>
                     </div>
 
-                    <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4">
+                    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
                       <div className="flex items-center gap-3">
                         <div className="rounded-2xl bg-blue-100 p-3 text-blue-700">
                           <Smartphone className="h-5 w-5" />
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <p className="text-sm text-slate-500">Link público</p>
                           <p className="text-base font-semibold text-slate-900">
                             Agendamento no celular
@@ -206,7 +213,7 @@ export default function Hero() {
                       </div>
                     </div>
 
-                    <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4">
+                    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
                       <p className="text-sm text-slate-500">Plano</p>
                       <p className="mt-1 text-2xl font-black tracking-[-0.04em] text-slate-900">
                         R$ 49,90
@@ -219,17 +226,15 @@ export default function Hero() {
             </div>
 
             <div className="mt-6 overflow-hidden">
-              <div className="animate-marquee flex w-[200%] gap-4">
-                {[...miniStats, ...miniStats, ...miniStats, ...miniStats].map(
-                  (item, index) => (
-                    <div
-                      key={`${item}-${index}`}
-                      className="flex h-11 items-center rounded-full border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 shadow-sm"
-                    >
-                      {item}
-                    </div>
-                  )
-                )}
+              <div className="flex flex-wrap justify-center gap-3">
+                {miniStats.map((item) => (
+                  <div
+                    key={item}
+                    className="flex h-11 items-center rounded-full border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 shadow-sm"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
