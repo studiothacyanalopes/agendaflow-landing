@@ -1,70 +1,72 @@
+import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
-import {
-  ArrowRight,
-  CalendarClock,
-  CheckCircle2,
-  CreditCard,
-  Smartphone,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 
-const miniStats = [
+const highlights = [
   "Agenda online 24h",
   "Pix integrado",
-  "Mobile premium",
-  "7 dias grátis",
+  "Confirmação automática",
+  "Experiência premium",
 ];
+
+const accent = "#C8F169";
+const accentDark = "#111827";
 
 export default function Hero() {
   return (
-    <section className="section-grid bg-radial-soft relative overflow-hidden">
-      <div className="absolute left-[-80px] top-24 h-64 w-64 rounded-full bg-emerald-200/30 blur-3xl" />
-      <div className="absolute right-[-100px] top-10 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
-      <div className="absolute bottom-[-120px] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-emerald-100/60 blur-3xl" />
+    <section className="relative overflow-hidden bg-[#f4f5f2]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(200,241,105,0.14),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.05),transparent_28%)]" />
 
-      <Container className="relative z-10 py-14 sm:py-20 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 xl:gap-14">
-          <div className="mx-auto w-full max-w-3xl text-center lg:mx-0 lg:text-left">
-            <div className="reveal-up inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700">
+      <Container className="relative z-10 py-16 sm:py-20 lg:py-24 xl:py-28">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.76fr_1.24fr] xl:gap-14">
+          {/* ESQUERDA */}
+          <div className="mx-auto w-full max-w-xl text-center lg:mx-0 lg:text-left">
+            <div
+              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-sm"
+              style={{ backgroundColor: accent, color: accentDark }}
+            >
               <Sparkles className="h-4 w-4" />
-              7 dias grátis para testar sem compromisso
+              AgendaFlow para negócios de beleza que querem crescer com mais valor
             </div>
 
-            <h1 className="reveal-up delay-1 mt-6 text-4xl font-black tracking-[-0.06em] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl">
-              Transforme sua agenda em{" "}
-              <span className="text-[#16a34a]">crescimento real</span> para sua
-              barbearia ou salão.
+            <h1 className="mt-6 text-4xl font-black leading-[0.94] tracking-[-0.065em] text-slate-950 sm:text-5xl lg:text-[4.1rem] xl:text-[4.5rem]">
+              Seu salão, barbearia ou estúdio pode transmitir{" "}
+              <span style={{ color: "#1f9d55" }}>muito mais valor</span>.
             </h1>
 
-            <p className="reveal-up delay-2 mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg lg:max-w-xl">
-              O AgendaFlow organiza seus agendamentos, profissionais, clientes e
-              pagamentos em uma experiência premium. Mais controle, mais
-              profissionalismo e menos confusão no WhatsApp.
+            <p className="mt-5 text-base leading-7 text-slate-700 sm:text-lg">
+              Organize agenda, clientes, pagamentos e equipe com uma experiência
+              mais moderna, bonita e profissional para o seu negócio.
             </p>
 
-            <div className="reveal-up delay-3 mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <Button href="/cadastro" className="group">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <Button
+                href="https://app.agendeflow.com/login"
+                className="group"
+              >
                 Testar 7 dias grátis
                 <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-0.5" />
               </Button>
 
-              <Button href="#demonstracao" variant="secondary">
-                Ver demonstração
+              <Button
+                href="https://wa.me/5562994693465?text=Olá!%20Quero%20solicitar%20uma%20demonstração%20do%20AgendaFlow."
+                variant="secondary"
+              >
+                Solicite uma demonstração
               </Button>
             </div>
 
-            <div className="reveal-up delay-4 mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 lg:justify-start">
-              <span className="font-medium text-slate-900">R$ 49,90/mês</span>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 lg:justify-start">
+              <span className="font-semibold text-slate-950">R$ 49,90/mês</span>
               <span>•</span>
               <span>sem fidelidade</span>
               <span>•</span>
               <span>comece grátis</span>
             </div>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-3 lg:justify-start">
-              {miniStats.map((item) => (
+            <div className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
+              {highlights.map((item) => (
                 <div
                   key={item}
                   className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm"
@@ -73,168 +75,119 @@ export default function Hero() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+              <ShieldCheck className="h-4 w-4 text-emerald-600" />
+              Mais percepção de valor para sua marca
+            </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[760px] lg:max-w-none">
-            <div className="animate-float absolute -left-4 top-6 z-10 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl xl:block">
-              <div className="flex items-center gap-3">
-                <div className="rounded-2xl bg-emerald-50 p-3 text-emerald-600">
-                  <CalendarClock className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500">Agendamento confirmado</p>
-                  <p className="text-sm font-semibold text-slate-900">
-                    Corte + barba às 14:30
-                  </p>
-                </div>
+          {/* DIREITA */}
+          <div className="relative mx-auto w-full max-w-[980px]">
+            {/* DESKTOP */}
+            <div className="relative hidden h-[660px] lg:block">
+              {/* shape base */}
+              <div
+                className="absolute right-[22px] top-[16px] h-[610px] w-[620px] bg-[#e7ebe6]"
+                style={{
+                  borderRadius: "28% 28% 24% 24% / 24% 24% 18% 18%",
+                }}
+              />
+
+              {/* accent blob */}
+              <div
+                className="absolute right-[150px] top-[82px] h-[445px] w-[245px]"
+                style={{
+                  backgroundColor: accent,
+                  borderRadius: "999px",
+                }}
+              />
+
+              {/* imagem com máscara custom */}
+              <div
+                className="absolute right-0 top-0 z-10 h-[620px] w-[660px] overflow-hidden shadow-[0_50px_140px_rgba(15,23,42,0.16)]"
+                style={{
+                  clipPath:
+                    "polygon(18% 0%, 74% 0%, 88% 4%, 97% 10%, 100% 22%, 100% 48%, 92% 57%, 100% 67%, 100% 82%, 93% 92%, 80% 100%, 18% 100%, 8% 95%, 0% 84%, 0% 66%, 11% 54%, 0% 41%, 0% 20%, 6% 8%)",
+                }}
+              >
+                <Image
+                  src="/images/landing/hero-brand.jpg"
+                  alt="Profissional sorrindo em ambiente premium"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-white/10" />
+              </div>
+
+              {/* badge superior */}
+              <div className="absolute left-[10px] top-[142px] z-20 rounded-full bg-white/95 px-5 py-2.5 text-sm font-semibold text-slate-800 shadow-[0_12px_30px_rgba(15,23,42,0.10)]">
+                Marca mais forte e operação mais organizada
+              </div>
+
+              {/* card inferior esquerdo */}
+              <div className="absolute left-[0px] bottom-[82px] z-20 w-[285px] rounded-[28px] bg-white/95 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.14)] backdrop-blur">
+                <p className="text-sm text-slate-500">Resultado</p>
+                <p className="mt-1 text-[1.35rem] font-black leading-tight tracking-[-0.04em] text-slate-950">
+                  Atendimento mais premium
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Mais organização, mais confiança e mais valor percebido para
+                  salão, barbearia ou estúdio.
+                </p>
+              </div>
+
+              {/* micro badge */}
+              <div className="absolute right-[38px] top-[195px] z-20 rounded-[24px] bg-white/95 px-5 py-4 shadow-[0_18px_40px_rgba(15,23,42,0.10)]">
+                <p className="text-sm font-semibold text-slate-900">
+                  Visual que vende melhor
+                </p>
+              </div>
+
+              {/* barrinha tipo carrossel */}
+              <div className="absolute left-[150px] bottom-[18px] z-20 flex items-center gap-3">
+                <div className="h-4 w-20 rounded-full bg-[#f97316]" />
+                <div className="h-4 w-4 rounded-full bg-slate-300" />
               </div>
             </div>
 
-            <div className="animate-float-delay absolute -right-3 top-24 z-10 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl xl:block">
-              <div className="flex items-center gap-3">
-                <div className="rounded-2xl bg-blue-50 p-3 text-blue-600">
-                  <CreditCard className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500">Pagamento</p>
-                  <p className="text-sm font-semibold text-slate-900">
-                    Pix pendente
-                  </p>
-                </div>
+            {/* MOBILE */}
+            <div className="relative mx-auto h-[470px] w-full max-w-[430px] lg:hidden">
+              <div
+                className="absolute right-[4px] top-[28px] h-[360px] w-[320px] bg-[#e7ebe6]"
+                style={{
+                  borderRadius: "28% 28% 24% 24% / 24% 24% 18% 18%",
+                }}
+              />
+
+              <div
+                className="absolute right-[86px] top-[88px] h-[240px] w-[138px] rounded-[999px]"
+                style={{ backgroundColor: accent }}
+              />
+
+              <div
+                className="absolute right-0 top-0 z-10 h-[390px] w-[350px] overflow-hidden shadow-2xl"
+                style={{
+                  clipPath:
+                    "polygon(18% 0%, 74% 0%, 88% 4%, 97% 10%, 100% 22%, 100% 48%, 92% 57%, 100% 67%, 100% 82%, 93% 92%, 80% 100%, 18% 100%, 8% 95%, 0% 84%, 0% 66%, 11% 54%, 0% 41%, 0% 20%, 6% 8%)",
+                }}
+              >
+                <Image
+                  src="/images/landing/hero-brand.jpg"
+                  alt="Profissional sorrindo em ambiente premium"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-white/10" />
               </div>
-            </div>
 
-            <div className="animate-float-slow absolute bottom-10 left-0 z-10 hidden rounded-3xl border border-slate-200 bg-white p-4 shadow-xl xl:block">
-              <div className="flex items-center gap-3">
-                <div className="rounded-2xl bg-violet-50 p-3 text-violet-600">
-                  <Users className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500">Equipe organizada</p>
-                  <p className="text-sm font-semibold text-slate-900">
-                    Profissionais e horários
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="gradient-border glass-card soft-shadow-lg animate-glow relative mx-auto w-full max-w-[680px] overflow-hidden rounded-[28px] p-2 sm:rounded-[32px] sm:p-3">
-              <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-100/70 to-transparent" />
-
-              <div className="relative rounded-[24px] border border-slate-200 bg-white p-3 sm:rounded-[28px] sm:p-4 md:p-5">
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <div className="flex min-w-0 items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white sm:h-11 sm:w-11">
-                      <CalendarClock className="h-5 w-5" />
-                    </div>
-
-                    <div className="min-w-0">
-                      <p className="truncate font-semibold text-slate-900">
-                        AgendaFlow
-                      </p>
-                      <p className="truncate text-xs text-slate-500">
-                        Painel do estabelecimento
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="shrink-0 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-                    Online
-                  </div>
-                </div>
-
-                <div className="grid gap-4 xl:grid-cols-[1.1fr_0.9fr]">
-                  <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-3 sm:p-4">
-                    <div className="mb-4 flex items-center justify-between gap-3">
-                      <div className="min-w-0">
-                        <p className="text-sm text-slate-500">Agenda do dia</p>
-                        <h3 className="text-lg font-bold tracking-[-0.03em] text-slate-900">
-                          Hoje
-                        </h3>
-                      </div>
-
-                      <div className="shrink-0 rounded-2xl bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm">
-                        8 horários
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      {[
-                        ["09:00", "Corte Masculino", "Lucas"],
-                        ["10:30", "Barba", "Henrique"],
-                        ["14:30", "Corte + Barba", "Marcos"],
-                        ["16:00", "Luzes Masculinas", "Pedro"],
-                      ].map(([hour, service, client]) => (
-                        <div
-                          key={`${hour}-${service}`}
-                          className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-3 py-3 sm:px-4"
-                        >
-                          <div className="min-w-0">
-                            <p className="truncate text-sm font-semibold text-slate-900">
-                              {service}
-                            </p>
-                            <p className="truncate text-xs text-slate-500">
-                              {client}
-                            </p>
-                          </div>
-
-                          <div className="shrink-0 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                            {hour}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
-                      <div className="flex items-center gap-3">
-                        <div className="rounded-2xl bg-emerald-100 p-3 text-emerald-700">
-                          <CheckCircle2 className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <p className="text-sm text-slate-500">Confirmações</p>
-                          <p className="text-xl font-bold text-slate-900">92%</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
-                      <div className="flex items-center gap-3">
-                        <div className="rounded-2xl bg-blue-100 p-3 text-blue-700">
-                          <Smartphone className="h-5 w-5" />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-sm text-slate-500">Link público</p>
-                          <p className="text-base font-semibold text-slate-900">
-                            Agendamento no celular
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="rounded-[22px] border border-slate-200 bg-slate-50 p-4">
-                      <p className="text-sm text-slate-500">Plano</p>
-                      <p className="mt-1 text-2xl font-black tracking-[-0.04em] text-slate-900">
-                        R$ 49,90
-                      </p>
-                      <p className="text-sm text-slate-500">por mês</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 overflow-hidden">
-              <div className="flex flex-wrap justify-center gap-3">
-                {miniStats.map((item) => (
-                  <div
-                    key={item}
-                    className="flex h-11 items-center rounded-full border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 shadow-sm"
-                  >
-                    {item}
-                  </div>
-                ))}
+              <div className="absolute left-0 bottom-6 z-20 w-[235px] rounded-[24px] bg-white/95 p-4 shadow-xl">
+                <p className="text-xs text-slate-500">Resultado</p>
+                <p className="mt-1 text-base font-black text-slate-950">
+                  Atendimento mais premium
+                </p>
               </div>
             </div>
           </div>
