@@ -6,6 +6,7 @@ const navItems = [
   { href: "#recursos", label: "Recursos" },
   { href: "#demonstracao", label: "Demonstração" },
   { href: "#preco", label: "Preço" },
+  { href: "/encontrar", label: "Encontrar" },
 ];
 
 export default function Navbar() {
@@ -42,17 +43,25 @@ export default function Navbar() {
 
             {/* NAV */}
             <nav className="hidden items-center gap-10 lg:flex xl:gap-12">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="group relative text-[16px] font-semibold text-slate-700 transition duration-300 hover:text-slate-950 xl:text-[17px]"
-                >
-                  <span className="relative z-10">{item.label}</span>
-                  <span className="absolute left-1/2 top-1/2 z-0 h-10 w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/75 opacity-0 blur-sm transition-all duration-300 group-hover:w-[118%] group-hover:opacity-100" />
-                  <span className="absolute left-0 top-[calc(100%+9px)] h-[2px] w-0 rounded-full bg-[#22c55e] transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
+{navItems.map((item) => {
+  const isExternalPage = item.href.startsWith("/");
+
+  return (
+    <a
+      key={item.href}
+      href={item.href}
+      className="group relative text-[16px] font-semibold text-slate-700 transition duration-300 hover:text-slate-950 xl:text-[17px]"
+    >
+      <span className="relative z-10">{item.label}</span>
+      <span className="absolute left-1/2 top-1/2 z-0 h-10 w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/75 opacity-0 blur-sm transition-all duration-300 group-hover:w-[118%] group-hover:opacity-100" />
+      <span className="absolute left-0 top-[calc(100%+9px)] h-[2px] w-0 rounded-full bg-[#22c55e] transition-all duration-300 group-hover:w-full" />
+
+      {isExternalPage && (
+        <span className="sr-only">Abrir página {item.label}</span>
+      )}
+    </a>
+  );
+})}
 
               <a
                 href="#segmentos"
