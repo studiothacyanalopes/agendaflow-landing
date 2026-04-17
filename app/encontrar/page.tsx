@@ -271,16 +271,16 @@ function CompanyCard({
 
   return (
     <article
-      className={`group h-full overflow-hidden rounded-[28px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)] ${
+      className={`group h-full min-w-0 overflow-hidden rounded-[28px] border border-slate-200 bg-white transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)] ${
         compact
           ? "shadow-[0_10px_30px_rgba(15,23,42,0.05)]"
           : "shadow-[0_14px_42px_rgba(15,23,42,0.06)]"
       }`}
     >
-      <div className="relative border-b border-slate-100 bg-[linear-gradient(135deg,#f8fafc_0%,#f1f5f9_55%,#ecfdf5_100%)]">
+      <div className="relative overflow-hidden border-b border-slate-100 bg-[linear-gradient(135deg,#f8fafc_0%,#f1f5f9_55%,#ecfdf5_100%)]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.10),transparent_40%)]" />
 
-        <div className="relative flex items-center gap-4 px-5 py-5 sm:px-6">
+        <div className="relative flex min-w-0 items-center gap-4 px-4 py-5 sm:px-6">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-[20px] border border-white bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08)] sm:h-[72px] sm:w-[72px]">
             {company.logo_url ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -296,17 +296,17 @@ function CompanyCard({
             )}
           </div>
 
-          <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-700">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-[10px] font-semibold uppercase tracking-[0.22em] text-emerald-700 sm:text-[11px]">
               Agendamento online
             </p>
 
-            <h3 className="mt-1 line-clamp-2 text-lg font-bold tracking-[-0.03em] text-slate-950 sm:text-[1.15rem]">
+            <h3 className="mt-1 line-clamp-2 break-words text-lg font-bold tracking-[-0.03em] text-slate-950 sm:text-[1.15rem]">
               {company.name}
             </h3>
 
             {(company.address_city || company.address_state) && (
-              <p className="mt-1 text-sm font-medium text-slate-600">
+              <p className="mt-1 truncate text-sm font-medium text-slate-600">
                 {[company.address_city, company.address_state]
                   .filter(Boolean)
                   .join(", ")}
@@ -316,29 +316,31 @@ function CompanyCard({
         </div>
       </div>
 
-      <div className="p-5 sm:p-6">
+      <div className="min-w-0 p-4 sm:p-6">
         {reviewStat && reviewStat.count > 0 && (
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-sm font-semibold text-amber-700">
-            <Star className="h-4 w-4 fill-current" />
-            {formatReviewAverage(reviewStat.average)} • {reviewStat.count}{" "}
-            {reviewStat.count === 1 ? "avaliação" : "avaliações"}
+          <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-sm font-semibold text-amber-700">
+            <Star className="h-4 w-4 shrink-0 fill-current" />
+            <span className="truncate">
+              {formatReviewAverage(reviewStat.average)} • {reviewStat.count}{" "}
+              {reviewStat.count === 1 ? "avaliação" : "avaliações"}
+            </span>
           </div>
         )}
 
         {company.address_name && (
-          <p className="text-sm font-medium text-slate-900">
+          <p className="break-words text-sm font-medium text-slate-900">
             {company.address_name}
           </p>
         )}
 
         {(address.line1 || address.line2) && (
-          <div className="mt-4 rounded-[22px] border border-slate-200 bg-slate-50 px-4 py-4">
-            <div className="flex items-start gap-3">
+          <div className="mt-4 min-w-0 rounded-[22px] border border-slate-200 bg-slate-50 px-4 py-4">
+            <div className="flex min-w-0 items-start gap-3">
               <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white">
                 <MapPin className="h-4 w-4 text-slate-500" />
               </div>
 
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 {address.line1 && (
                   <p className="break-words text-sm font-medium leading-6 text-slate-900">
                     {address.line1}
@@ -361,12 +363,12 @@ function CompanyCard({
           </div>
         )}
 
-        <div className="mt-5 flex flex-wrap gap-2.5">
+        <div className="mt-5 grid grid-cols-1 gap-2.5 sm:flex sm:flex-wrap">
           <a
             href={bookingUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-11 items-center justify-center rounded-full bg-gradient-to-r from-[#22c55e] to-[#16a34a] px-4 text-sm font-bold text-white shadow-[0_10px_26px_rgba(34,197,94,0.22)] transition duration-300 hover:-translate-y-0.5"
+            className="inline-flex h-11 w-full items-center justify-center rounded-full bg-gradient-to-r from-[#22c55e] to-[#16a34a] px-4 text-sm font-bold text-white shadow-[0_10px_26px_rgba(34,197,94,0.22)] transition duration-300 hover:-translate-y-0.5 sm:w-auto"
           >
             Agendar agora
           </a>
@@ -376,9 +378,9 @@ function CompanyCard({
               href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50"
+              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50 sm:w-auto"
             >
-              <MessageCircle className="h-4 w-4" />
+              <MessageCircle className="h-4 w-4 shrink-0" />
               WhatsApp
             </a>
           )}
@@ -388,9 +390,9 @@ function CompanyCard({
               href={instagramUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50"
+              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50 sm:w-auto"
             >
-              <Instagram className="h-4 w-4" />
+              <Instagram className="h-4 w-4 shrink-0" />
               Instagram
             </a>
           )}
@@ -400,9 +402,9 @@ function CompanyCard({
               href={company.maps_link}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50"
+              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50 sm:w-auto"
             >
-              <ExternalLink className="h-4 w-4" />
+              <ExternalLink className="h-4 w-4 shrink-0" />
               Ver local
             </a>
           )}
@@ -414,20 +416,22 @@ function CompanyCard({
 
 export default async function EncontrarPage() {
   const companies = await getCompanies();
-  const reviewStats = await getReviewStatsByCompany(companies.map((item) => item.id));
+  const reviewStats = await getReviewStatsByCompany(
+    companies.map((item) => item.id)
+  );
 
   const featuredCompanies = companies.slice(0, 3);
   const otherCompanies = companies.slice(3);
 
   return (
-    <main className="min-h-screen bg-[#f6f7f9] text-slate-950">
+    <main className="min-h-screen overflow-x-hidden bg-[#f6f7f9] text-slate-950">
       <div className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/88 backdrop-blur-xl">
-        <Container className="max-w-[1400px]">
-          <div className="flex min-h-[76px] flex-wrap items-center justify-between gap-3 py-3">
+        <Container className="w-full max-w-[1400px] overflow-x-hidden">
+          <div className="flex min-h-[76px] min-w-0 flex-wrap items-center justify-between gap-3 py-3">
             <div className="flex min-w-0 items-center gap-3">
               <a
                 href="/"
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50"
+                className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-800 transition duration-300 hover:bg-slate-50"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Voltar ao menu
@@ -447,7 +451,7 @@ export default async function EncontrarPage() {
 
             <a
               href="/"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 px-4 text-sm font-semibold text-emerald-700 transition duration-300 hover:bg-emerald-100"
+              className="inline-flex h-11 shrink-0 items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 px-4 text-sm font-semibold text-emerald-700 transition duration-300 hover:bg-emerald-100"
             >
               Ver AgendaFlow
             </a>
@@ -455,16 +459,16 @@ export default async function EncontrarPage() {
         </Container>
       </div>
 
-      <Container className="max-w-[1400px] pb-16 pt-6 sm:pt-8">
-        <section className="overflow-hidden rounded-[32px] border border-slate-200 bg-white px-5 py-6 shadow-[0_18px_60px_rgba(15,23,42,0.05)] sm:px-7 sm:py-7 lg:px-10 lg:py-8">
-          <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-sm font-semibold text-emerald-700">
-                <Sparkles className="h-4 w-4" />
-                Encontrar estabelecimentos
+      <Container className="w-full max-w-[1400px] overflow-x-hidden pb-16 pt-6 sm:pt-8">
+        <section className="w-full min-w-0 overflow-hidden rounded-[32px] border border-slate-200 bg-white px-4 py-6 shadow-[0_18px_60px_rgba(15,23,42,0.05)] sm:px-6 sm:py-7 lg:px-10 lg:py-8">
+          <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
+            <div className="min-w-0 max-w-3xl">
+              <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-2 text-sm font-semibold text-emerald-700">
+                <Sparkles className="h-4 w-4 shrink-0" />
+                <span className="truncate">Encontrar estabelecimentos</span>
               </div>
 
-              <h1 className="mt-4 max-w-2xl text-[2rem] font-black leading-[1.02] tracking-[-0.05em] text-slate-950 sm:text-[2.4rem] lg:text-[3rem]">
+              <h1 className="mt-4 max-w-2xl break-words text-[1.9rem] font-black leading-[1.02] tracking-[-0.05em] text-slate-950 sm:text-[2.25rem] lg:text-[3rem]">
                 Encontre negócios com agenda online e presença mais profissional
               </h1>
 
@@ -475,54 +479,60 @@ export default async function EncontrarPage() {
               </p>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-3">
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-                  Estabelecimentos
-                </p>
-                <p className="mt-2 text-2xl font-black tracking-[-0.05em] text-slate-950">
-                  {companies.length}
-                </p>
-                <p className="mt-1 text-sm text-slate-500">nesta vitrine</p>
-              </div>
+<div className="grid min-w-0 grid-cols-1 gap-3 md:grid-cols-3">
+  <div className="min-w-0 overflow-hidden rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4 sm:px-5">
+    <p className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-[10px]">
+      Estabelecimentos
+    </p>
+    <p className="mt-2 text-2xl font-black tracking-[-0.05em] text-slate-950">
+      {companies.length}
+    </p>
+    <p className="mt-1 text-sm text-slate-500">
+      nesta vitrine
+    </p>
+  </div>
 
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-                  Experiência
-                </p>
-                <p className="mt-2 text-2xl font-black tracking-[-0.05em] text-slate-950">
-                  Online
-                </p>
-                <p className="mt-1 text-sm text-slate-500">agendamento fácil</p>
-              </div>
+  <div className="min-w-0 overflow-hidden rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4 sm:px-5">
+    <p className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-[10px]">
+      Experiência
+    </p>
+    <p className="mt-2 text-2xl font-black tracking-[-0.05em] text-slate-950">
+      Online
+    </p>
+    <p className="mt-1 text-sm text-slate-500">
+      agendamento fácil
+    </p>
+  </div>
 
-              <div className="rounded-[24px] border border-slate-200 bg-slate-50 p-4">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-                  Presença
-                </p>
-                <p className="mt-2 text-2xl font-black tracking-[-0.05em] text-slate-950">
-                  Premium
-                </p>
-                <p className="mt-1 text-sm text-slate-500">visual mais forte</p>
-              </div>
-            </div>
+  <div className="min-w-0 overflow-hidden rounded-[24px] border border-slate-200 bg-slate-50 px-4 py-4 sm:px-5">
+    <p className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:text-[10px]">
+      Presença
+    </p>
+    <p className="mt-2 text-2xl font-black tracking-[-0.05em] text-slate-950">
+      Premium
+    </p>
+    <p className="mt-1 text-sm text-slate-500">
+      visual mais forte
+    </p>
+  </div>
+</div>
           </div>
         </section>
 
-        <section className="mt-6 rounded-[28px] border border-slate-200 bg-white px-5 py-4 shadow-[0_12px_40px_rgba(15,23,42,0.04)] sm:px-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
+        <section className="mt-6 w-full min-w-0 overflow-hidden rounded-[28px] border border-slate-200 bg-white px-4 py-4 shadow-[0_12px_40px_rgba(15,23,42,0.04)] sm:px-6">
+          <div className="flex min-w-0 flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="min-w-0">
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                 Vitrine
               </p>
-              <h2 className="mt-1 text-xl font-bold tracking-[-0.03em] text-slate-950 sm:text-2xl">
+              <h2 className="mt-1 break-words text-xl font-bold tracking-[-0.03em] text-slate-950 sm:text-2xl">
                 Estabelecimentos disponíveis
               </h2>
             </div>
 
-            <div className="flex w-full items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-3 lg:max-w-[340px]">
-              <Search className="h-4 w-4 text-slate-400" />
-              <span className="text-sm text-slate-500">
+            <div className="flex w-full min-w-0 items-center gap-3 overflow-hidden rounded-full border border-slate-200 bg-slate-50 px-4 py-3 lg:max-w-[340px]">
+              <Search className="h-4 w-4 shrink-0 text-slate-400" />
+              <span className="min-w-0 truncate text-sm text-slate-500">
                 Busca e filtros entram na próxima etapa
               </span>
             </div>
@@ -543,11 +553,11 @@ export default async function EncontrarPage() {
           <>
             {featuredCompanies.length > 0 && (
               <section className="mt-8">
-                <div className="mb-4">
+                <div className="mb-4 min-w-0">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Destaques
                   </p>
-                  <h2 className="mt-1 text-2xl font-bold tracking-[-0.04em] text-slate-950">
+                  <h2 className="mt-1 break-words text-2xl font-bold tracking-[-0.04em] text-slate-950">
                     Principais estabelecimentos em destaque
                   </h2>
                 </div>
@@ -566,11 +576,11 @@ export default async function EncontrarPage() {
 
             {otherCompanies.length > 0 && (
               <section className="mt-10">
-                <div className="mb-4">
+                <div className="mb-4 min-w-0">
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Mais opções
                   </p>
-                  <h2 className="mt-1 text-2xl font-bold tracking-[-0.04em] text-slate-950">
+                  <h2 className="mt-1 break-words text-2xl font-bold tracking-[-0.04em] text-slate-950">
                     Outros estabelecimentos disponíveis
                   </h2>
                 </div>
