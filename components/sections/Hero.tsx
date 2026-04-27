@@ -10,6 +10,7 @@ import {
   ExternalLink,
   MapPin,
   MessageSquareQuote,
+  PlayCircle,
   Search,
   ShieldCheck,
   Sparkles,
@@ -21,6 +22,19 @@ const highlights = [
   "Pix integrado",
   "Confirmação automática",
   "Experiência premium",
+];
+
+const knowledgeVideos = [
+  {
+    title: "Comece do jeito certo",
+    description: "Crie sua conta, confirme o e-mail e entenda o primeiro acesso.",
+    video: "/videos/inicioagendaflow.mp4",
+  },
+  {
+    title: "Configure sua empresa",
+    description: "Veja como deixar o AgendaFlow pronto para receber clientes.",
+    video: "/videos/onboarding-agendaflow.mp4",
+  },
 ];
 
 const testimonials = [
@@ -415,6 +429,138 @@ export default function Hero() {
               <ShieldCheck className="h-4 w-4 text-emerald-600" />
               Mais percepção de valor para sua marca
             </div>
+
+        <div className="mt-16">
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.22em] text-emerald-600">
+                Central de Conhecimento
+              </p>
+
+              <h2 className="mt-2 text-3xl font-black tracking-[-0.05em] text-slate-950 sm:text-4xl">
+                Aprenda o AgendaFlow na prática
+              </h2>
+
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                Vídeos rápidos para criar conta, confirmar e-mail, configurar a empresa,
+                cadastrar profissionais, serviços e começar a vender com mais organização.
+              </p>
+            </div>
+
+            <div className="hidden items-center gap-3 md:flex">
+              <button
+                type="button"
+                onClick={() =>
+                  document
+                    .getElementById("knowledge-carousel")
+                    ?.scrollBy({ left: -360, behavior: "smooth" })
+                }
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-black text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
+                aria-label="Voltar vídeos"
+              >
+                ←
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  document
+                    .getElementById("knowledge-carousel")
+                    ?.scrollBy({ left: 360, behavior: "smooth" })
+                }
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-black text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
+                aria-label="Avançar vídeos"
+              >
+                →
+              </button>
+
+              <a
+                href="/conhecimento"
+                className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
+              >
+                Ver todos
+              </a>
+            </div>
+          </div>
+
+          <div
+            id="knowledge-carousel"
+            className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {knowledgeVideos.map((item) => (
+              <a
+                key={item.title}
+                href="/conhecimento"
+                className="group w-[82vw] min-w-[82vw] snap-start overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:w-[390px] sm:min-w-[390px] lg:w-[420px] lg:min-w-[420px]"
+              >
+                <div className="relative aspect-video overflow-hidden bg-black">
+                  <video
+                    className="h-full w-full object-contain"
+                    muted
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={item.video} type="video/mp4" />
+                  </video>
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-xs font-black text-slate-900 shadow-sm">
+                    <PlayCircle className="h-4 w-4 text-emerald-600" />
+                    Tutorial rápido
+                  </div>
+
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/75">
+                      AgendaFlow Academy
+                    </p>
+                    <h3 className="mt-1 text-xl font-black tracking-[-0.04em] text-white">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <p className="text-sm leading-7 text-slate-600">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700 transition group-hover:bg-emerald-100">
+                    Assistir passo a passo
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-4 flex gap-3 md:hidden">
+            <button
+              type="button"
+              onClick={() =>
+                document
+                  .getElementById("knowledge-carousel")
+                  ?.scrollBy({ left: -320, behavior: "smooth" })
+              }
+              className="flex flex-1 items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-black text-slate-800 shadow-sm"
+            >
+              ← Voltar
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                document
+                  .getElementById("knowledge-carousel")
+                  ?.scrollBy({ left: 320, behavior: "smooth" })
+              }
+              className="flex flex-1 items-center justify-center rounded-full bg-emerald-600 px-4 py-3 text-sm font-black text-white shadow-sm"
+            >
+              Avançar →
+            </button>
+          </div>
+        </div>
+
           </div>
 
           <div className="relative mx-auto w-full max-w-[980px]">
