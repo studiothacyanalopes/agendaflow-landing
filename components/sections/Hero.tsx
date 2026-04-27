@@ -31,9 +31,49 @@ const knowledgeVideos = [
     video: "/videos/inicioagendaflow.mp4",
   },
   {
-    title: "Configure sua empresa",
-    description: "Veja como deixar o AgendaFlow pronto para receber clientes.",
+    title: "Confirmar e-mail",
+    description: "Veja como confirmar o e-mail e voltar para o login.",
+    video: "/videos/confirmar-email.mp4",
+  },
+  {
+    title: "Onboarding da empresa",
+    description: "Configure os primeiros dados da empresa dentro do sistema.",
     video: "/videos/onboarding-agendaflow.mp4",
+  },
+  {
+    title: "Configurar empresa",
+    description: "Ajuste horários, endereço, regras e link público.",
+    video: "/videos/configurar-empresa.mp4",
+  },
+  {
+    title: "Cadastrar profissionais",
+    description: "Organize sua equipe dentro do AgendaFlow.",
+    video: "/videos/cadastrar-profissional.mp4",
+  },
+  {
+    title: "Cadastrar serviços",
+    description: "Configure serviços, valores, duração e profissionais.",
+    video: "/videos/cadastrar-servicos.mp4",
+  },
+  {
+    title: "Agenda dos profissionais",
+    description: "Veja todos os horários e atendimentos em um só lugar.",
+    video: "/videos/agenda-todos-profissionais.mp4",
+  },
+  {
+    title: "Criar agendamentos",
+    description: "Agende clientes de forma rápida e organizada.",
+    video: "/videos/criar-agendamento.mp4",
+  },
+  {
+    title: "Imprimir guia",
+    description: "Veja como imprimir ou salvar a guia de pagamento.",
+    video: "/videos/imprimir-guia-pagamento.mp4",
+  },
+  {
+    title: "Tour pelo sistema",
+    description: "Conheça os principais menus do AgendaFlow.",
+    video: "/videos/tour-sistema-agendaflow.mp4",
   },
 ];
 
@@ -430,136 +470,7 @@ export default function Hero() {
               Mais percepção de valor para sua marca
             </div>
 
-        <div className="mt-16">
-          <div className="mb-6 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-sm font-black uppercase tracking-[0.22em] text-emerald-600">
-                Central de Conhecimento
-              </p>
 
-              <h2 className="mt-2 text-3xl font-black tracking-[-0.05em] text-slate-950 sm:text-4xl">
-                Aprenda o AgendaFlow na prática
-              </h2>
-
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-                Vídeos rápidos para criar conta, confirmar e-mail, configurar a empresa,
-                cadastrar profissionais, serviços e começar a vender com mais organização.
-              </p>
-            </div>
-
-            <div className="hidden items-center gap-3 md:flex">
-              <button
-                type="button"
-                onClick={() =>
-                  document
-                    .getElementById("knowledge-carousel")
-                    ?.scrollBy({ left: -360, behavior: "smooth" })
-                }
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-black text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
-                aria-label="Voltar vídeos"
-              >
-                ←
-              </button>
-
-              <button
-                type="button"
-                onClick={() =>
-                  document
-                    .getElementById("knowledge-carousel")
-                    ?.scrollBy({ left: 360, behavior: "smooth" })
-                }
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-black text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
-                aria-label="Avançar vídeos"
-              >
-                →
-              </button>
-
-              <a
-                href="/conhecimento"
-                className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50"
-              >
-                Ver todos
-              </a>
-            </div>
-          </div>
-
-          <div
-            id="knowledge-carousel"
-            className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {knowledgeVideos.map((item) => (
-              <a
-                key={item.title}
-                href="/conhecimento"
-                className="group w-[82vw] min-w-[82vw] snap-start overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.07)] transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_24px_70px_rgba(15,23,42,0.12)] sm:w-[390px] sm:min-w-[390px] lg:w-[420px] lg:min-w-[420px]"
-              >
-                <div className="relative aspect-video overflow-hidden bg-black">
-                  <video
-                    className="h-full w-full object-contain"
-                    muted
-                    playsInline
-                    preload="metadata"
-                  >
-                    <source src={item.video} type="video/mp4" />
-                  </video>
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/95 px-3 py-1.5 text-xs font-black text-slate-900 shadow-sm">
-                    <PlayCircle className="h-4 w-4 text-emerald-600" />
-                    Tutorial rápido
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/75">
-                      AgendaFlow Academy
-                    </p>
-                    <h3 className="mt-1 text-xl font-black tracking-[-0.04em] text-white">
-                      {item.title}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="p-5">
-                  <p className="text-sm leading-7 text-slate-600">
-                    {item.description}
-                  </p>
-
-                  <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700 transition group-hover:bg-emerald-100">
-                    Assistir passo a passo
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          <div className="mt-4 flex gap-3 md:hidden">
-            <button
-              type="button"
-              onClick={() =>
-                document
-                  .getElementById("knowledge-carousel")
-                  ?.scrollBy({ left: -320, behavior: "smooth" })
-              }
-              className="flex flex-1 items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-3 text-sm font-black text-slate-800 shadow-sm"
-            >
-              ← Voltar
-            </button>
-
-            <button
-              type="button"
-              onClick={() =>
-                document
-                  .getElementById("knowledge-carousel")
-                  ?.scrollBy({ left: 320, behavior: "smooth" })
-              }
-              className="flex flex-1 items-center justify-center rounded-full bg-emerald-600 px-4 py-3 text-sm font-black text-white shadow-sm"
-            >
-              Avançar →
-            </button>
-          </div>
-        </div>
 
           </div>
 
@@ -663,6 +574,112 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
+               <section className="mt-16 overflow-hidden rounded-[34px] border border-slate-200 bg-white/80 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.06)] sm:p-7 lg:p-8">
+  <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <p className="text-xs font-black uppercase tracking-[0.2em] text-emerald-600">
+        Aprenda rápido
+      </p>
+
+      <h2 className="mt-2 text-2xl font-black tracking-[-0.04em] text-slate-950 sm:text-3xl">
+        Veja como usar o AgendaFlow em poucos minutos
+      </h2>
+
+      <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+        Tutoriais rápidos para começar, configurar e usar o sistema sem complicação.
+      </p>
+    </div>
+
+    <div className="flex items-center gap-3">
+      <button
+        type="button"
+        onClick={() =>
+          document
+            .getElementById("knowledge-videos-carousel")
+            ?.scrollBy({ left: -360, behavior: "smooth" })
+        }
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-black text-slate-800 shadow-sm transition hover:bg-slate-50"
+        aria-label="Voltar vídeos"
+      >
+        ←
+      </button>
+
+      <button
+        type="button"
+        onClick={() =>
+          document
+            .getElementById("knowledge-videos-carousel")
+            ?.scrollBy({ left: 360, behavior: "smooth" })
+        }
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-xl font-black text-slate-800 shadow-sm transition hover:bg-slate-50"
+        aria-label="Avançar vídeos"
+      >
+        →
+      </button>
+
+      <a
+        href="/conhecimento"
+        className="hidden rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-800 shadow-sm transition hover:bg-slate-50 sm:inline-flex"
+      >
+        Ver todos
+      </a>
+    </div>
+  </div>
+
+  <div
+    id="knowledge-videos-carousel"
+    className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+  >
+    {knowledgeVideos.map((item) => (
+      <a
+        key={item.title}
+        href="/conhecimento"
+        className="group w-[78vw] min-w-[78vw] snap-start overflow-hidden rounded-[26px] border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(15,23,42,0.10)] sm:w-[310px] sm:min-w-[310px] lg:w-[330px] lg:min-w-[330px]"
+      >
+        <div className="relative flex aspect-video items-center justify-center overflow-hidden bg-black">
+          <video
+            className="h-full w-full object-contain"
+            muted
+            playsInline
+            preload="auto"
+            controls={false}
+          >
+            <source src={`${item.video}#t=0.1`} type="video/mp4" />
+          </video>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+
+          <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[11px] font-black text-slate-900 shadow-sm">
+            <PlayCircle className="h-3.5 w-3.5 text-emerald-600" />
+            Prévia
+          </div>
+
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/95 text-emerald-600 shadow-lg transition group-hover:scale-105">
+              <PlayCircle className="h-6 w-6" />
+            </div>
+          </div>
+        </div>
+
+        <div className="p-4">
+          <h3 className="line-clamp-1 text-sm font-black text-slate-950">
+            {item.title}
+          </h3>
+
+          <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-600">
+            {item.description}
+          </p>
+
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-xs font-black text-emerald-700 transition group-hover:bg-emerald-100">
+            Assistir
+            <ArrowRight className="h-3.5 w-3.5" />
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
 
         <div className="mt-16 rounded-[34px] border border-slate-200 bg-white shadow-[0_24px_80px_rgba(15,23,42,0.06)]">
           <div className="relative overflow-hidden rounded-t-[34px] bg-[linear-gradient(135deg,rgba(15,23,42,0.92),rgba(15,23,42,0.78)),url('/images/landing/hero-brand.jpg')] bg-cover bg-center px-6 py-10 sm:px-8 lg:px-12 lg:py-14">
